@@ -33,7 +33,7 @@ public class BreadthFirstSearch implements Search{
 					temp.add(outNode);
 					found[outNode] = true;
 					//max++;
-			
+					// TODO: optimize, remove the auxiliary list if possible
 				}
 			}
 			if(waiting.isEmpty() && !temp.isEmpty()){

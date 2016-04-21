@@ -1,6 +1,5 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,7 +24,7 @@ public class Main {
 				for(int k = 0; k<line.length; k++)
 					lineNumbers[k] = Integer.parseInt(line[k]);
 				for(int j : lineNumbers)
-					if(j!=0 && j!= lineNumbers[0])
+					if(j!=0 && j!= i)
 						graph.addEdge(i+1, j);
 			}
 			int numberOfClues = Integer.parseInt(reader.readLine());
@@ -47,12 +46,12 @@ public class Main {
 			}
 			double timeTaken =(double)((System.nanoTime()-startTime)/1000000.0);
 			if(possibleLocations.isEmpty())
-				System.out.println(NOTSOLVABLE);
+				System.out.print(NOTSOLVABLE);
 			for(int result : possibleLocations)
 				System.out.print(result + " ");
 			reader.close();
 			double totalTimeTaken =(double)((System.nanoTime()-totalTime)/1000000.0);
-			System.out.println("\nTime = " + timeTaken + " ms\nData parsing = " + timeTakenDataReg + " ms\nTotal time = " + totalTimeTaken + " ms");
+		//	System.out.println("\nTime = " + timeTaken + " ms\nData parsing = " + timeTakenDataReg + " ms\nTotal time = " + totalTimeTaken + " ms");
 		}catch (Exception e){
 			e.printStackTrace();
 		}
