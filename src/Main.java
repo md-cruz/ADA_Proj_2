@@ -36,6 +36,7 @@ public class Main {
 			double timeTakenDataReg =(double)((System.nanoTime()-totalDataRegistration)/1000000.0);
 			Search s = new BreadthFirstSearch(graph, numberOfDistrictLocations);
 			List<Integer> possibleLocations = null;
+			
 			long startTime = System.nanoTime();
 			for(int crime : clues.keySet()){
 				if(possibleLocations == null)
@@ -45,13 +46,15 @@ public class Main {
 				
 			}
 			double timeTaken =(double)((System.nanoTime()-startTime)/1000000.0);
+			
 			if(possibleLocations.isEmpty())
 				System.out.print(NOTSOLVABLE);
 			for(int result : possibleLocations)
 				System.out.print(result + " ");
 			reader.close();
 			double totalTimeTaken =(double)((System.nanoTime()-totalTime)/1000000.0);
-		//	System.out.println("\nTime = " + timeTaken + " ms\nData parsing = " + timeTakenDataReg + " ms\nTotal time = " + totalTimeTaken + " ms");
+			
+			System.out.println("\nTime = " + timeTaken + " ms\nData parsing = " + timeTakenDataReg + " ms\nTotal time = " + totalTimeTaken + " ms");
 		}catch (Exception e){
 			e.printStackTrace();
 		}
