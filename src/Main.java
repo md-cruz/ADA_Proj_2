@@ -1,5 +1,7 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -46,15 +48,16 @@ public class Main {
 				
 			}
 			double timeTaken =(double)((System.nanoTime()-startTime)/1000000.0);
-			
+			Collections.sort(possibleLocations);
 			if(possibleLocations.isEmpty())
-				System.out.print(NOTSOLVABLE);
-			for(int result : possibleLocations)
-				System.out.print(result + " ");
+				System.out.println(NOTSOLVABLE);
+			else
+				System.out.println(possibleLocations.toString().replaceAll("[^\\w\\s]",""));
 			reader.close();
 			double totalTimeTaken =(double)((System.nanoTime()-totalTime)/1000000.0);
+			System.out.println();
 			
-			System.out.println("\nTime = " + timeTaken + " ms\nData parsing = " + timeTakenDataReg + " ms\nTotal time = " + totalTimeTaken + " ms");
+			//System.out.println("\nTime = " + timeTaken + " ms\nData parsing = " + timeTakenDataReg + " ms\nTotal time = " + totalTimeTaken + " ms");
 		}catch (Exception e){
 			e.printStackTrace();
 		}
