@@ -46,7 +46,6 @@ public class GraphImpl implements Graph {
 	@Override
 	public void addEdge(int node1, int node2) {
 		List<Integer> node1Edges = new ArrayList<Integer>();
-		List<Integer> node2Edges = new ArrayList<Integer>();
 		if(nodesEdge.containsKey(node1)){
 			node1Edges = nodesEdge.get(node1);
 			if(!node1Edges.contains(node2)){
@@ -57,17 +56,6 @@ public class GraphImpl implements Graph {
 			node1Edges.add(node2);
 			nodesEdge.put(node1, node1Edges);
 		}
-		if(nodesEdge.containsKey(node2)){
-			node2Edges = nodesEdge.get(node2);
-			if(!node2Edges.contains(node1)){
-				node2Edges.add(node1);
-				nodesEdge.put(node2, node2Edges);
-			}
-		}else{
-			node2Edges.add(node1);
-			nodesEdge.put(node2, node2Edges);
-		}
-
 	}
 
 	@Override

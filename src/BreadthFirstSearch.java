@@ -1,6 +1,4 @@
 import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Queue;
 
 public class BreadthFirstSearch implements Search{
@@ -17,11 +15,8 @@ public class BreadthFirstSearch implements Search{
 	// an integer queue implented in a linkedlist will always
 								  // be able to cast to an integer list
 	@Override
-	public List<Integer> vertexAtXPosition(int originalVertex, int maxDistance) {
+	public void vertexAtXPosition(int originalVertex, int maxDistance, int[] res) {
 		Queue<Integer> waiting = new ArrayDeque<Integer>(numNodes);
-		//Queue<Integer> temp = new ArrayDeque<Integer>(numNodes);
-		//Queue<Integer> waiting = new LinkedList<Integer>();
-		//Queue<Integer> temp = new LinkedList<Integer>();
 		waiting.add(originalVertex);
 		boolean[] found = new boolean[numNodes+1];// because we are using the number of the node,
 												  // instead of number-1
@@ -40,7 +35,7 @@ public class BreadthFirstSearch implements Search{
 					//temp.add(outNode);
 					found[outNode] = true;
 					finishedNodes = false;
-					// TODO: optimize, remove the auxiliary queue if possible
+					
 				}
 			}
 			if(numberOfParents == doneNodes && doneNodes != 0){
@@ -60,8 +55,9 @@ public class BreadthFirstSearch implements Search{
 			}*/
 		}
 		//waiting.addAll(temp);
-		//List<Integer> result = new ArrayList<Integer>(waiting);		
-		return new ArrayList<Integer>(waiting);
+		
+		for(int i : waiting)
+			res[i]++;
 	}
 
 }

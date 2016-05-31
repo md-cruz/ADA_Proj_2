@@ -2,5 +2,5 @@ import java.util.List;
 
 public interface Search {
 
-	List<Integer> vertexAtXPosition(int originalVertex, int maxDistance);
+	void vertexAtXPosition(int originalVertex, int maxDistance, int[] res);
 }
